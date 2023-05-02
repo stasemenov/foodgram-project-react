@@ -130,3 +130,11 @@ dmypy.json
 
 # .idea
 .idea
+
+# OS
+.DS_Store
+
+static/
+media/
+
+migrations/

@@ -152,15 +152,16 @@ class IngredientRecipe(models.Model):
     )
 
     class Meta:
-        verbose_name = 'Ингредиент рецепта'
-        verbose_name_plural = 'Ингредиенты рецепта'
+        verbose_name = 'Продукт рецепта'
+        verbose_name_plural = 'Продукты в рецептах'
         constraints = [models.UniqueConstraint(
             name='unique_ingredient_in_recipe',
             fields=('ingredient', 'recipe'))]
 
     def __str__(self):
-        return (f'В рецепте "{self.recipe}" - {self.amount} '
-                f'{self.ingredient.measurement_unit} {self.ingredient}')
+        return (
+            f'В рецепте "{self.recipe}" - {self.amount} '
+            f'{self.ingredient.measurement_unit} {self.ingredient.name}')
 
 
 class UserRecipeBaseModel(models.Model):

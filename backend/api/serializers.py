@@ -25,8 +25,8 @@ class CustomUserSerializer(UserSerializer):
 
     class Meta:
         model = User
-        fields = ('email', 'id', 'username', 'first_name', 'last_name',
-                  'is_subscribed')
+        fields = ('email', 'id', 'username', 'first_name',
+                  'last_name', 'is_subscribed')
 
     def get_is_subscribed(self, obj):
         request = self.context.get('request')
@@ -178,7 +178,7 @@ class RecipeWriteSerializer(serializers.ModelSerializer):
             ingredients_list += [ingredient]
             if int(ingredient.get('amount')) < 1:
                 raise serializers.ValidationError(
-                    'Укажите количество больше нуля')
+                    'Укажите значение больше нуля')
 
         return ingredients
 

@@ -162,7 +162,7 @@ class RecipeWriteSerializer(serializers.ModelSerializer):
             if tag.id in tags_list:
                 raise serializers.ValidationError(
                     'Теги не могут повторяться')
-            tags_list += [tag.id]
+            tags_list.append(tag.id)
 
         return tags
 
@@ -175,7 +175,7 @@ class RecipeWriteSerializer(serializers.ModelSerializer):
             if ingredient in ingredients_list:
                 raise serializers.ValidationError(
                     'Ингредиенты не могут повторяться')
-            ingredients_list += [ingredient]
+            ingredients_list.append(ingredient)
             if int(ingredient.get('amount')) < 1:
                 raise serializers.ValidationError(
                     'Укажите значение больше нуля')

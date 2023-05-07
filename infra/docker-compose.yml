@@ -9,7 +9,7 @@ services:
       - .env
 
   backend:
-    build: asternem/foodgram_backend:latest
+    image: asternem/foodgram_backend:latest
     restart: always
     volumes:
       - static_value:/app/static/

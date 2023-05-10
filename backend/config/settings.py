@@ -13,7 +13,8 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = os.getenv('DEBUG_MODE', default=False)
 
 
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', default='*').split()
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS',
+                          default='foodgram.stanislavsemenov.ru').split()
 
 
 INSTALLED_APPS = [
@@ -76,7 +77,7 @@ DATABASES = {
         'ENGINE': os.getenv('DB_ENGINE', 'django.db.backends.postgresql'),
         'NAME': os.getenv('DB_NAME', 'postgres'),
         'USER': os.getenv('POSTGRES_USER', 'postgres'),
-        'PASSWORD': os.getenv('POSTGRES_PASSWORD', ),
+        'PASSWORD': os.getenv('POSTGRES_PASSWORD', 'postgres'),
         'HOST': os.getenv('DB_HOST', 'db'),
         'PORT': os.getenv('DB_PORT', '5432'),
     }
@@ -182,5 +183,4 @@ CSRF_TRUSTED_ORIGINS = [
     'http://*.127.0.0.1',
     'http://*.foodgram.stanislavsemenov.ru',
     'http://*.158.160.40.250',
-    'http://*.85.193.85.73',
 ]

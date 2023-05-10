@@ -17,6 +17,21 @@ API доступна по адресу: **http://foodgram.stanislavsemenov.ru/ap
 
 а её документация: **http://foodgram.stanislavsemenov.ru/api/docs/redoc.html**
 
+__________________________________
+
+Вход для админа: **http://foodgram.stanislavsemenov.ru/admin/**
+```
+admin@foo.bar
+!23456Qwerty
+```
+Вход для пользователя:
+```
+paulbocuse@mail.fake
+Qwerty!23456
+```
+
+__________________________________
+
 ## Как запустить проект:
 
 - На Вашем сервере должен быть установлен docker
@@ -66,6 +81,7 @@ docker-compose exec backend python manage.py collectstatic --no-input
 ```
 docker-compose exec backend python manage.py load_data
 ```
+
 
 __________________________________
 

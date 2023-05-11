@@ -15,11 +15,10 @@ from users.models import Subscribe, User
 from .filters import IngredientFilter, RecipeFilter
 from .pagination import CustomPagination
 from .permissions import IsAuthorOrReadOnly
-from .serializers import (CustomUserSerializer, FavoriteSerializer,
-                          IngredientSerializer, RecipeReadSerializer,
-                          RecipeWriteSerializer, ShoppingCartSerializer,
-                          SubscribeListSerializer, SubscribeSerializer,
-                          TagSerializer)
+from .serializers import (FavoriteSerializer, IngredientSerializer,
+                          RecipeReadSerializer, RecipeWriteSerializer,
+                          ShoppingCartSerializer, SubscribeListSerializer,
+                          SubscribeSerializer, TagSerializer, UserSerializer)
 
 
 class TagViewSet(viewsets.ReadOnlyModelViewSet):
@@ -39,7 +38,7 @@ class IngredientViewSet(viewsets.ReadOnlyModelViewSet):
 
 class CustomUserViewSet(UserViewSet):
     queryset = User.objects.all()
-    serializer_class = CustomUserSerializer
+    serializer_class = UserSerializer
     filter_backends = (filters.SearchFilter, )
     permission_classes = (IsAuthenticated, )
     pagination_class = CustomPagination

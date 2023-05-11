@@ -1,4 +1,4 @@
-from djoser.serializers import UserSerializer
+from djoser.serializers import UserSerializer as CustomUserSerializer
 from drf_extra_fields.fields import Base64ImageField
 from rest_framework import serializers
 from rest_framework.validators import UniqueTogetherValidator
@@ -20,7 +20,7 @@ class IngredientSerializer(serializers.ModelSerializer):
         fields = ('id', 'name', 'measurement_unit')
 
 
-class CustomUserSerializer(UserSerializer):
+class UserSerializer(CustomUserSerializer):
     is_subscribed = serializers.SerializerMethodField(read_only=True)
 
     class Meta:
